@@ -117,10 +117,15 @@ char determine_21(int &m, int a)
 }
 void game()
 {
-    char c;
+    char yn;
     cout<<"=發牌時刻= 選擇跟牌還是停牌?(y or n)"<<endl;
-    cin>>c;
-    if (c == 'y')
+    c : cin>>yn;
+    if (yn != 'y' && yn != 'n')
+    {
+        cout<<"輸入錯誤!請輸入y or n: ";
+        goto c;
+    }
+    if (yn == 'y')
     {
         cout<<"你拿到: ";
         you();
@@ -192,9 +197,15 @@ int main()
     {
         char n;
         cout<<"===EN's Blackjack==="<<endl;
-        Sleep(1000);
+        Sleep(500);
         cout<<"玩一把嗎?(y or n)  剩餘金額: "<<money<<"$"<<endl;
-        cin>>n;
+        a : cin>>n;
+        if (n != 'y' && n != 'n')
+        {
+            cout<<"輸入錯誤!請輸入y or n: ";
+            goto a;
+        }
+
         if (n == 'n') break;
         int bet;
         cout<<"你要下注多少?"<<endl;
