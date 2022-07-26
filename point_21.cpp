@@ -133,7 +133,7 @@ void game()
     }
     cout<<"接著換EN進行選擇"<<endl;
     Sleep(1000);
-    if (en_sum >= 15 && en_sum <= 21)
+    if (en_sum >= 15 && en_sum < 21)
     {
         srand(5*time(NULL));
         int y_n = rand()%5;
@@ -210,9 +210,9 @@ int main()
         int bet;
         cout<<"你要下注多少?"<<endl;
         b : cin>>bet;
-        if ((money-bet) < 0)
+        if ((money-bet) < 0 || bet <= 0)
         {
-            cout<<"金額不足 請重新下注: ";
+            cout<<"(金額不足或輸入錯誤!) 請重新下注: ";
             goto b;
         }
         money -= bet;
